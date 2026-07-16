@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeForge — Premium Typing Performance</title>
+    <meta
+      name="description"
+      content="TypeForge is a premium typing performance analyzer built for speed, accuracy, and polished focus."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <a href="#" class="brand" aria-label="TypeForge home">
+          <span class="brand-mark">⚒</span>
+          <span>TypeForge</span>
+        </a>
+        <button class="ghost-button" id="homeButton">Home</button>
+      </header>
+
+      <main>
+        <section class="hero-section" id="landingSection">
+          <div class="hero-copy">
+            <div class="eyebrow">Premium typing performance analyzer</div>
+            <h1>Forge your typing speed.</h1>
+            <p>
+              Measure speed, accuracy, and consistency through a premium typing experience designed for focused flow.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" id="startButton">Start Forging</button>
+              <button class="secondary-button" id="previewButton">Preview Experience</button>
+            </div>
+            <div class="hero-pills">
+              <span>60s test</span>
+              <span>Live metrics</span>
+              <span>Forge Score</span>
+            </div>
+          </div>
+
+          <div class="hero-preview">
+            <div class="preview-card">
+              <div class="preview-top">
+                <span class="preview-pill">Forge Score</span>
+                <span class="preview-badge">Live</span>
+              </div>
+              <div class="preview-score">92.4</div>
+              <div class="preview-stats">
+                <div>
+                  <strong>96</strong>
+                  <span>WPM</span>
+                </div>
+                <div>
+                  <strong>98%</strong>
+                  <span>Accuracy</span>
+                </div>
+                <div>
+                  <strong>4</strong>
+                  <span>Mistakes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="app-section" id="typingSection" aria-live="polite">
+          <div class="mode-bar">
+            <div class="mode-switcher" role="tablist" aria-label="Typing modes">
+              <button class="mode-button active" data-mode="classic">Classic Mode</button>
+              <button class="mode-button" data-mode="developer">Developer Mode</button>
+            </div>
+            <div class="timer-pill" id="timerDisplay">01:00</div>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <span class="metric-label">WPM</span>
+              <strong class="metric-value" id="wpmValue">0</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Accuracy</span>
+              <strong class="metric-value" id="accuracyValue">100%</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Characters</span>
+              <strong class="metric-value" id="charactersValue">0</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Mistakes</span>
+              <strong class="metric-value" id="mistakesValue">0</strong>
+            </article>
+            <article class="metric-card forge-card">
+              <span class="metric-label">Forge Score</span>
+              <strong class="metric-value" id="forgeValue">0</strong>
+            </article>
+          </div>
+
+          <div class="arena-card">
+            <div class="arena-top">
+              <div>
+                <p class="arena-eyebrow">Typing arena</p>
+                <h2 id="modeHeadline">Classic Mode</h2>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+
+            <div class="prompt-panel" id="promptPanel"></div>
+            <textarea
+              id="typingInput"
+              class="typing-input"
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              aria-label="Typing input"
+            ></textarea>
+
+            <div class="arena-footer">
+              <p>Start typing to begin the timer. Focus stays on the flow.</p>
+            </div>
+          </div>
+
+          <div class="results-card" id="resultsCard">
+            <div class="results-badge">⚒ FORGED</div>
+            <h3 class="results-title">Your run is complete.</h3>
+            <div class="results-score" id="resultsScore">0.0</div>
+            <div class="results-stats">
+              <div>
+                <span>WPM</span>
+                <strong id="resultWpm">0</strong>
+              </div>
+              <div>
+                <span>Accuracy</span>
+                <strong id="resultAccuracy">0%</strong>
+              </div>
+              <div>
+                <span>Mistakes</span>
+                <strong id="resultMistakes">0</strong>
+              </div>
+            </div>
+            <div class="results-actions">
+              <button class="primary-button" id="retryButton">Try Again</button>
+              <button class="secondary-button" id="returnHomeButton">Home</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="data/paragraphs.js"></script>
+    <script src="data/codeSnippets.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
