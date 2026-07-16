@@ -23,11 +23,18 @@
 
     <div class="site-shell">
       <header class="topbar">
-        <a href="#" class="brand" aria-label="TypeForge home">
-          <span class="brand-mark">⚒</span>
-          <span>TypeForge</span>
-        </a>
-        <button class="ghost-button" id="homeButton">Home</button>
+        <div class="brand-stack">
+          <a href="#" class="brand" aria-label="TypeForge home">
+            <span class="brand-mark">⚒</span>
+            <span>TypeForge</span>
+          </a>
+          <span class="brand-credit">Crafted by Muhammad Hassaan Zeb</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-button" id="aboutButton">About</button>
+          <button class="ghost-button" id="soundToggle">Sound: ON</button>
+          <button class="ghost-button" id="homeButton">Home</button>
+        </div>
       </header>
 
       <main>
@@ -49,27 +56,41 @@
             </div>
           </div>
 
-          <div class="hero-preview">
-            <div class="preview-card">
-              <div class="preview-top">
-                <span class="preview-pill">Forge Score</span>
-                <span class="preview-badge">Live</span>
+          <div class="hero-side">
+            <div class="hero-preview">
+              <div class="preview-card">
+                <div class="preview-top">
+                  <span class="preview-pill">Forge Score</span>
+                  <span class="preview-badge">Live</span>
+                </div>
+                <div class="preview-score">92.4</div>
+                <div class="preview-stats">
+                  <div>
+                    <strong>96</strong>
+                    <span>WPM</span>
+                  </div>
+                  <div>
+                    <strong>98%</strong>
+                    <span>Accuracy</span>
+                  </div>
+                  <div>
+                    <strong>4</strong>
+                    <span>Mistakes</span>
+                  </div>
+                </div>
               </div>
-              <div class="preview-score">92.4</div>
-              <div class="preview-stats">
-                <div>
-                  <strong>96</strong>
-                  <span>WPM</span>
-                </div>
-                <div>
-                  <strong>98%</strong>
-                  <span>Accuracy</span>
-                </div>
-                <div>
-                  <strong>4</strong>
-                  <span>Mistakes</span>
-                </div>
-              </div>
+            </div>
+
+            <div class="home-insights">
+              <article class="info-card daily-card">
+                <div class="info-title">Daily Forge Challenge</div>
+                <p id="dailyChallengeText">A fresh challenge arrives each day with the same calm rhythm.</p>
+                <button class="secondary-button small" id="dailyChallengeButton">Take Daily Challenge</button>
+              </article>
+              <article class="info-card session-card">
+                <div class="info-title">Current Session</div>
+                <div id="sessionStats" class="session-stats"></div>
+              </article>
             </div>
           </div>
         </section>
@@ -82,6 +103,8 @@
             </div>
             <div class="timer-pill" id="timerDisplay">01:00</div>
           </div>
+
+          <div class="category-bar" id="categoryBar"></div>
 
           <div class="metrics-grid">
             <article class="metric-card">
@@ -133,10 +156,27 @@
             </div>
           </div>
 
+          <div class="keyboard-card" id="keyboardVisualizer"></div>
+
+          <div class="transition-card" id="transitionCard">
+            <div class="transition-badge">⚒ Forge Analysis</div>
+            <div class="transition-message" id="transitionMessage">Analyzing performance...</div>
+            <div class="transition-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+
           <div class="results-card" id="resultsCard">
             <div class="results-badge">⚒ FORGED</div>
             <h3 class="results-title">Your run is complete.</h3>
             <div class="results-score" id="resultsScore">0.0</div>
+            <div class="rank-card" id="rankCard">
+              <div class="rank-icon" id="rankIcon">✦</div>
+              <div>
+                <div class="rank-name" id="rankName">Spark</div>
+                <div class="rank-description" id="rankDescription">A fresh spark of precision.</div>
+              </div>
+            </div>
             <div class="results-stats">
               <div>
                 <span>WPM</span>
@@ -152,6 +192,7 @@
               </div>
             </div>
             <div class="results-actions">
+              <button class="primary-button" id="copyResultButton">Copy Result</button>
               <button class="primary-button" id="retryButton">Try Again</button>
               <button class="secondary-button" id="returnHomeButton">Home</button>
             </div>
@@ -159,6 +200,19 @@
         </section>
       </main>
     </div>
+
+    <div class="modal-overlay" id="aboutModal" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close" id="closeModal" aria-label="Close about dialog">×</button>
+        <div class="eyebrow">About</div>
+        <h3>TypeForge was created by Muhammad Hassaan Zeb.</h3>
+        <p>
+          It is a personal project exploring frontend engineering, interactive experiences, and developer-focused tools designed to feel thoughtful, polished, and quietly ambitious.
+        </p>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="data/paragraphs.js"></script>
     <script src="data/codeSnippets.js"></script>
